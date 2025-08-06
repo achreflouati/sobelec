@@ -1,0 +1,31 @@
+.custom-link-preview {
+	background: white;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+	padding: 10px;
+	max-width: 300px;
+	transition: transform 0.2s ease;
+}
+
+.custom-link-preview:hover {
+	transform: scale(1.05);
+}
+
+.custom-link-preview .preview-image {
+	width: 80px;
+	height: 80px;
+	border-radius: 8px;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.custom-link-preview .preview-image:hover {
+	transform: scale(1.5);
+}
+
+.custom-link-preview .preview-title {
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 5px;
+}
