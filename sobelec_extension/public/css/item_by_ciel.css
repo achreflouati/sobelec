@@ -1,0 +1,344 @@
+/* Item by Ciel - Style Frappe Moderne */
+
+.item-ciel-filters {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.item-ciel-filters .form-group {
+    margin-bottom: 0;
+}
+
+.item-ciel-filters .control-label {
+    font-weight: 500;
+    color: #495057;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Stats Bar */
+.stats-bar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.stat-card {
+    text-align: center;
+    padding: 10px;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 12px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table Styles */
+.items-table-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+}
+
+.item-ciel-table {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.item-ciel-table .table-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 2px solid #dee2e6;
+}
+
+.item-ciel-table .table-header th {
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #495057;
+    border-bottom: none;
+    padding: 15px 8px;
+    vertical-align: middle;
+}
+
+.item-ciel-table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.item-ciel-table tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.item-ciel-table tbody td {
+    padding: 12px 8px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+/* Item specific styles */
+.item-name {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 2px;
+}
+
+.item-thumbnail {
+    border: 2px solid #e9ecef;
+    transition: transform 0.2s ease;
+}
+
+.item-thumbnail:hover {
+    transform: scale(1.1);
+    border-color: #007bff;
+}
+
+.item-thumbnail-placeholder {
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef) !important;
+}
+
+/* Status indicators */
+.table-warning {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+}
+
+.supplier-info span {
+    font-weight: 500;
+    color: #495057;
+}
+
+/* Action buttons */
+.btn-group-vertical .btn {
+    border-radius: 4px !important;
+    margin-bottom: 2px;
+    border: 1px solid #dee2e6;
+    transition: all 0.2s ease;
+}
+
+.btn-group-vertical .btn:hover {
+    transform: translateX(2px);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+
+.item-details-btn:hover {
+    background-color: #17a2b8 !important;
+    color: white !important;
+}
+
+.item-edit-btn:hover {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+.item-stock-btn:hover {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
+/* Pagination */
+.pagination-area {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border-top: 1px solid #dee2e6;
+}
+
+.pagination-info {
+    line-height: 32px;
+    color: #6c757d;
+    font-size: 13px;
+}
+
+/* Loading indicator */
+.loading-indicator {
+    padding: 50px;
+    color: #6c757d;
+}
+
+.loading-indicator .fa-spinner {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .item-ciel-filters .col-md-3,
+    .item-ciel-filters .col-md-2 {
+        margin-bottom: 15px;
+    }
+    
+    .stats-bar .col-md-3 {
+        margin-bottom: 10px;
+    }
+    
+    .stat-number {
+        font-size: 20px;
+    }
+    
+    .item-ciel-table {
+        font-size: 11px;
+    }
+    
+    .item-ciel-table tbody td {
+        padding: 8px 4px;
+    }
+}
+
+/* Color scheme enhancements */
+.text-success {
+    color: #28a745 !important;
+    font-weight: 600;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+    font-weight: 600;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+    font-weight: 600;
+}
+
+/* Badge improvements */
+.badge {
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Modern form controls */
+.item-ciel-filters .form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    transition: all 0.2s ease;
+    font-size: 13px;
+}
+
+.item-ciel-filters .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+/* Button improvements */
+.btn-sm {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    border: none;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #1e7e34, #155724);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+/* Enhanced modals */
+.modal-dialog {
+    margin-top: 50px;
+}
+
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-title {
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Stock details specific */
+.stock-details table {
+    margin-top: 15px;
+}
+
+.stock-details th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Smooth animations */
+* {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Print styles */
+@media print {
+    .item-ciel-filters,
+    .pagination-area,
+    .btn-group-vertical {
+        display: none !important;
+    }
+    
+    .items-table-container {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    .item-ciel-table th,
+    .item-ciel-table td {
+        border: 1px solid #000 !important;
+        font-size: 10px;
+    }
+}

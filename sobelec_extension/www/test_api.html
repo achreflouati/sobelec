@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API Item by Ciel</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Test API Item by Ciel</h1>
+    <button onclick="testAPI()">Tester API</button>
+    <div id="results"></div>
+
+    <script>
+        function testAPI() {
+            fetch('/api/method/sobelec_extension.item_by_ciel_api.get_items_ciel_style', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    filters: {},
+                    limit: 10,
+                    offset: 0
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('results').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            })
+            .catch(error => {
+                document.getElementById('results').innerHTML = 'Erreur: ' + error;
+            });
+        }
+    </script>
+</body>
+</html>

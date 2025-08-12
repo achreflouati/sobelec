@@ -23,23 +23,30 @@ app_license = "mit"
 
 # Includes in <head>
 # ------------------
-doc_events = {
-    "Item Price": {
-        "after_save": "sobelec_extension.sobelec_extension.item_sobelec_price.update_item_price_on_change"
-    },
-    "Item": {
-        "before_save": "sobelec_extension.sobelec_extension.item_sobelec_price.before_save_item",
-        "validate": "sobelec_extension.sobelec_extension.item_sobelec_price.before_save_item"
-    }
-}
+# doc_events = {
+#     "Item Price": {
+#         "after_save": "sobelec_extension.sobelec_extension.item_sobelec_price.update_item_price_on_change"
+#     },
+#     "Item": {
+#         "before_save": "sobelec_extension.sobelec_extension.item_sobelec_price.before_save_item",
+#         "validate": "sobelec_extension.sobelec_extension.item_sobelec_price.before_save_item"
+#     }
+# }
 
 
 # app_include_js = "/assets/sobelec_extension/js/link_preview_extension.js"
 # app_include_css = "/assets/sobelec_extension/css/link_preview_extension.css"
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/sobelec_extension/css/sobelec_extension.css"
-# app_include_js = "/assets/sobelec_extension/js/sobelec_extension.js"
+app_include_css = [
+    "/assets/sobelec_extension/css/item_by_ciel_optimized.css",
+    "/assets/sobelec_extension/css/item_by_ciel.css",
+    "/assets/sobelec_extension/css/link_preview_extension.css"
+]
+app_include_js = [
+    "/assets/sobelec_extension/js/item_details_dialog.js",
+    "/assets/sobelec_extension/js/link_preview_extension.js"
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/sobelec_extension/css/sobelec_extension.css"
@@ -255,7 +262,7 @@ doc_events = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
-app_include_js = [
-    "sobelec_extension/public/js/item_details_dialog.js"
-]
+# app_include_js = [
+#     "sobelec_extension/public/js/item_details_dialog.js"
+# ]
 

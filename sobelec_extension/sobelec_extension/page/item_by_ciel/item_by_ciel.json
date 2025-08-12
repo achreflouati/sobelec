@@ -1,0 +1,29 @@
+{
+ "creation": "2025-08-10 12:00:00.000000",
+ "doctype": "Page",
+ "icon": "fa fa-cube",
+ "idx": 1,
+ "modified": "2025-08-10 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sobelec Extension",
+ "name": "item-by-ciel",
+ "owner": "Administrator",
+ "page_name": "Item by Ciel",
+ "roles": [
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "Purchase User"
+  }
+ ],
+ "standard": "Yes",
+ "system_page": 0,
+ "title": "Item by Ciel"
+}
