@@ -1,25 +1,32 @@
 <div class="gl-by-ciel-1">
     <!-- Zone de filtres -->
     <div class="filters-section" style="margin-bottom: 20px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-            <select class="form-control filter-journal" style="min-width: 200px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+            <label style="margin-right: 6px;">Compte :</label>
+            <select class="form-control filter-journal" style="min-width: 220px;">
                 <option value="">-- Sélectionner un compte --</option>
             </select>
 
-            <input type="date" class="form-control filter-from-date" placeholder="Date début">
-            <input type="date" class="form-control filter-to-date" placeholder="Date fin">
+            <label style="margin: 0 6px 0 16px;">Du :</label>
+            <input type="date" class="form-control filter-from-date" placeholder="Date début" style="min-width: 160px;">
 
-            <input type="text" class="form-control filter-libelle" placeholder="Libellé">
-            <input type="text" class="form-control filter-piece" placeholder="N° pièce">
+            <label style="margin: 0 6px 0 16px;">Au :</label>
+            <input type="date" class="form-control filter-to-date" placeholder="Date fin" style="min-width: 160px;">
 
-            <button class="btn btn-primary btn-search">Rechercher</button>
+            <label style="margin: 0 6px 0 16px;">Libellé :</label>
+            <input type="text" class="form-control filter-libelle" placeholder="Libellé" style="min-width: 220px;">
+
+            <label style="margin: 0 6px 0 16px;">N° pièce :</label>
+            <input type="text" class="form-control filter-piece" placeholder="N° pièce" style="min-width: 160px;">
+
+            <button class="btn btn-primary btn-search" style="margin-left: 16px;">Rechercher</button>
         </div>
     </div>
 
     <!-- Tableau des écritures -->
     <div class="table-responsive">
-        <table class="table table-bordered table-sm gl-table">
-            <thead>
+        <table class="table table-bordered table-sm gl-table" style="font-size: 12px;">
+            <thead style="background-color: #e0e0e0;">
                 <tr>
                     <th>Compte</th>
                     <th>Libellé</th>
@@ -33,7 +40,7 @@
             <tbody>
                 <!-- Les lignes seront injectées en JS -->
             </tbody>
-            <tfoot>
+            <tfoot style="background-color: #f0f0f0; font-weight:bold;">
                 <tr>
                     <th colspan="2">Totaux</th>
                     <th class="text-right total-debit">0.00</th>
@@ -45,3 +52,13 @@
         </table>
     </div>
 </div>
+
+<style>
+    .gl-by-ciel-1 .filters-section .form-control {
+        height: 28px;
+        padding: 2px 6px;
+    }
+    .gl-table tbody tr:nth-child(even) {
+        background-color: #f7fbff;
+    }
+</style>
