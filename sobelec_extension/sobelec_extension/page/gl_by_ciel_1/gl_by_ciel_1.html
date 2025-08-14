@@ -1,64 +1,187 @@
-<div class="gl-by-ciel-1">
-    <!-- Zone de filtres -->
-    <div class="filters-section" style="margin-bottom: 20px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
-            <label style="margin-right: 6px;">Compte :</label>
-            <select class="form-control filter-journal" style="min-width: 220px;">
-                <option value="">-- Sélectionner un compte --</option>
-            </select>
-
-            <label style="margin: 0 6px 0 16px;">Du :</label>
-            <input type="date" class="form-control filter-from-date" placeholder="Date début" style="min-width: 160px;">
-
-            <label style="margin: 0 6px 0 16px;">Au :</label>
-            <input type="date" class="form-control filter-to-date" placeholder="Date fin" style="min-width: 160px;">
-
-            <label style="margin: 0 6px 0 16px;">Libellé :</label>
-            <input type="text" class="form-control filter-libelle" placeholder="Libellé" style="min-width: 220px;">
-
-            <label style="margin: 0 6px 0 16px;">N° pièce :</label>
-            <input type="text" class="form-control filter-piece" placeholder="N° pièce" style="min-width: 160px;">
-
-            <button class="btn btn-primary btn-search" style="margin-left: 16px;">Rechercher</button>
+<div class="sobelec-container gl-by-ciel-1">
+    <!-- Header Section -->
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-8">
+                <h2><i class="fa fa-book"></i> Grand Livre - style Ciel</h2>
+                <p class="text-muted">Lecture des écritures comptables au format Ciel, compatible ERPNext</p>
+            </div>
+            <div class="col-md-4 text-right">
+                <button class="btn btn-primary btn-add-entry">
+                    <i class="fa fa-plus"></i> Ajouter écriture
+                </button>
+                <button class="btn btn-success btn-export">
+                    <i class="fa fa-download"></i> Exporter CSV
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Tableau des écritures -->
-    <div class="table-responsive">
-        <table class="table table-bordered table-sm gl-table" style="font-size: 12px;">
-            <thead style="background-color: #e0e0e0;">
-                <tr>
-                    <th>Compte</th>
-                    <th>Libellé</th>
-                    <th class="text-right">Débit</th>
-                    <th class="text-right">Crédit</th>
-                    <th>Date</th>
-                    <th>Contrepartie</th>
-                    <th class="text-right">Solde courant</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Les lignes seront injectées en JS -->
-            </tbody>
-            <tfoot style="background-color: #f0f0f0; font-weight:bold;">
-                <tr>
-                    <th colspan="2">Totaux</th>
-                    <th class="text-right total-debit">0.00</th>
-                    <th class="text-right total-credit">0.00</th>
-                    <th colspan="2"></th>
-                    <th class="text-right total-balance">0.00</th>
-                </tr>
-            </tfoot>
-        </table>
+    <!-- Filters Section -->
+    <div class="filters-section card">
+        <div class="card-header">
+            <h4><i class="fa fa-filter"></i> Filtres</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Société</label>
+                    <select class="form-control filter-company">
+                        <option value="">Toutes</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>Compte</label>
+                    <select class="form-control filter-journal">
+                        <option value="">Tous les comptes</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label>Du</label>
+                    <input type="date" class="form-control filter-from-date" placeholder="Date début">
+                </div>
+                <div class="col-md-2">
+                    <label>Au</label>
+                    <input type="date" class="form-control filter-to-date" placeholder="Date fin">
+                </div>
+                <div class="col-md-2">
+                    <label>&nbsp;</label>
+                    <div class="form-check">
+                        <input class="form-check-input filter-include-opening" type="checkbox" id="include-opening">
+                        <label class="form-check-label" for="include-opening">Solde d&#39;ouverture</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4">
+                    <label>Libellé</label>
+                    <input type="text" class="form-control filter-libelle" placeholder="Libellé">
+                </div>
+                <div class="col-md-3">
+                    <label>N° pièce</label>
+                    <input type="text" class="form-control filter-piece" placeholder="N° pièce">
+                </div>
+                <div class="col-md-5 text-right">
+                    <label>&nbsp;</label>
+                    <div>
+                        <button class="btn btn-primary btn-search">
+                            <i class="fa fa-search"></i> Rechercher
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="stat-card bg-info">
+                    <div class="stat-number" id="stat-total-debit">0.00</div>
+                    <div class="stat-label">Total Débit</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card bg-warning">
+                    <div class="stat-number" id="stat-total-credit">0.00</div>
+                    <div class="stat-label">Total Crédit</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card bg-secondary">
+                    <div class="stat-number" id="stat-opening-balance">0.00</div>
+                    <div class="stat-label">Solde Ouverture</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card bg-primary">
+                    <div class="stat-number" id="stat-closing-balance">0.00</div>
+                    <div class="stat-label">Solde Global</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div class="loading-section" style="display:none;" id="gl-loading">
+        <div class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Chargement...</span>
+            </div>
+            <p class="mt-2">Chargement des écritures...</p>
+        </div>
+    </div>
+
+    <!-- GL Table -->
+    <div class="items-section card">
+        <div class="card-header d-flex justify-content-between">
+            <h4><i class="fa fa-list"></i> Écritures du Grand Livre</h4>
+            <div class="sorting-controls">
+                <select class="form-control form-control-sm d-inline-block sort-field" style="width:auto;">
+                    <option value="posting_date">Date</option>
+                    <option value="account">Compte</option>
+                    <option value="voucher_no">N° pièce</option>
+                </select>
+                <select class="form-control form-control-sm d-inline-block ml-2 sort-order" style="width:auto;">
+                    <option value="asc">Croissant</option>
+                    <option value="desc">Décroissant</option>
+                </select>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped mb-0 gl-table" style="font-size:12px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Compte</th>
+                            <th>Libellé</th>
+                            <th class="text-right">Débit</th>
+                            <th class="text-right">Crédit</th>
+                            <th>Date</th>
+                            <th>Contrepartie</th>
+                            <th class="text-right">Solde courant</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Injecté en JS -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="2">Totaux</th>
+                            <th class="text-right total-debit">0.00</th>
+                            <th class="text-right total-credit">0.00</th>
+                            <th colspan="2"></th>
+                            <th class="text-right total-balance">0.00</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actions / Pagination -->
+    <div class="gl-actions" style="margin:8px 0; display:flex; gap:8px; align-items:center;">
+        <div class="btn-group">
+            <button class="btn btn-outline-secondary btn-prev"><i class="fa fa-angle-left"></i></button>
+            <span class="btn btn-outline-secondary disabled page-info">Page 1</span>
+            <button class="btn btn-outline-secondary btn-next"><i class="fa fa-angle-right"></i></button>
+        </div>
+        <div style="margin-left:auto;" class="text-muted">
+            <span>Affichés: <strong id="stat-displayed-count">0</strong></span>
+        </div>
     </div>
 </div>
 
 <style>
-    .gl-by-ciel-1 .filters-section .form-control {
-        height: 28px;
-        padding: 2px 6px;
+    .sobelec-container .page-header { margin-bottom: 15px; }
+    .filters-section.card { margin-bottom: 12px; }
+    .stats-section .stat-card {
+        color: #fff; padding: 10px; border-radius: 6px; text-align: center;
+        margin-bottom: 10px;
     }
-    .gl-table tbody tr:nth-child(even) {
-        background-color: #f7fbff;
-    }
+    .stat-card .stat-number { font-size: 20px; font-weight: 600; }
+    .stat-card.bg-secondary { background: #6c757d; }
 </style>
