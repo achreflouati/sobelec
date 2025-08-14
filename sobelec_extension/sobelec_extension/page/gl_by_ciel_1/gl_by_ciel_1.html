@@ -1,0 +1,47 @@
+<div class="gl-by-ciel-1">
+    <!-- Zone de filtres -->
+    <div class="filters-section" style="margin-bottom: 20px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <select class="form-control filter-journal" style="min-width: 200px;">
+                <option value="">-- Sélectionner un compte --</option>
+            </select>
+
+            <input type="date" class="form-control filter-from-date" placeholder="Date début">
+            <input type="date" class="form-control filter-to-date" placeholder="Date fin">
+
+            <input type="text" class="form-control filter-libelle" placeholder="Libellé">
+            <input type="text" class="form-control filter-piece" placeholder="N° pièce">
+
+            <button class="btn btn-primary btn-search">Rechercher</button>
+        </div>
+    </div>
+
+    <!-- Tableau des écritures -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-sm gl-table">
+            <thead>
+                <tr>
+                    <th>Compte</th>
+                    <th>Libellé</th>
+                    <th class="text-right">Débit</th>
+                    <th class="text-right">Crédit</th>
+                    <th>Date</th>
+                    <th>Contrepartie</th>
+                    <th class="text-right">Solde courant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les lignes seront injectées en JS -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2">Totaux</th>
+                    <th class="text-right total-debit">0.00</th>
+                    <th class="text-right total-credit">0.00</th>
+                    <th colspan="2"></th>
+                    <th class="text-right total-balance">0.00</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

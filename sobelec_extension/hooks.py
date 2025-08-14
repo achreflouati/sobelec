@@ -45,7 +45,36 @@ app_include_css = [
 ]
 app_include_js = [
     "/assets/sobelec_extension/js/item_details_dialog.js",
-    "/assets/sobelec_extension/js/link_preview_extension.js"
+    "/assets/sobelec_extension/js/link_preview_extension.js",
+    "/assets/sobelec_extension/js/saisir_reglement_by_ciel.bundle.js"
+    
+]
+
+# Jinja
+# ---------------
+jenv = {
+    "methods": [
+        "get_payment_options:sobelec_extension.api_reglement.get_payment_options",
+    ]
+}
+
+# DocTypes
+# --------
+fixtures = [
+    {
+        "doctype": "Page",
+        "filters": [
+            {
+                "name": "saisir_reglement_by_ciel"
+            }
+        ]
+    }
+]
+
+# Bundle JS/CSS files
+# ------------------
+app_include_bundles = [
+    "saisir_reglement_by_ciel"
 ]
 
 # include js, css files in header of web template

@@ -1,0 +1,120 @@
+<div class="saisir-reglement-page">
+
+    <!-- Section Sélection Client/Fournisseur -->
+    <div class="party-selection mb-3">
+        <div class="row">
+            <div class="col-md-3">
+                <label>{{ __("Type de partie") }}</label>
+                <select class="form-control party-type">
+                    <option value="Customer">{{ __("Client") }}</option>
+                    <option value="Supplier">{{ __("Fournisseur") }}</option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <label>{{ __("Client/Fournisseur") }}</label>
+                <input type="text" class="form-control party" placeholder="{{ __() }}">
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button class="btn btn-primary load-invoices">{{ __("Charger factures") }}</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Info Solde -->
+    <div class="balance-section row mb-3">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="label">{{ __("Solde total") }}</div>
+                <div class="value" id="total-balance-{{ page_id }}">0.00</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="label">{{ __("Factures impayées") }}</div>
+                <div class="value" id="unpaid-count-{{ page_id }}">0</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="label">{{ __("Dernier règlement") }}</div>
+                <div class="value" id="last-payment-{{ page_id }}">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Factures -->
+    <div class="invoices-section mb-3">
+        <div class="table-responsive">
+            <table class="table table-bordered invoices-table" id="invoices-{{ page_id }}">
+                <thead>
+                    <tr>
+                        <th width="30px"><input type="checkbox" class="select-all"/></th>
+                        <th>{{ __("N° Facture") }}</th>
+                        <th>{{ __("Date") }}</th>
+                        <th>{{ __("Échéance") }}</th>
+                        <th class="text-right">{{ __("Montant total") }}</th>
+                        <th class="text-right">{{ __("Payé") }}</th>
+                        <th class="text-right">{{ __("Solde") }}</th>
+                        <th>{{ __("Statut") }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8" class="text-center text-muted">{{ __("Sélectionnez un client/fournisseur") }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4">{{ __("Total sélectionné") }}</th>
+                        <th class="text-right" id="selected-total-{{ page_id }}">0.00</th>
+                        <th class="text-right" id="selected-paid-{{ page_id }}">0.00</th>
+                        <th class="text-right" id="selected-balance-{{ page_id }}">0.00</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <!-- Section Saisie Règlement -->
+    <div class="payment-section mb-3">
+        <div class="row">
+            <div class="col-md-3">
+                <label>{{ __("Mode de paiement") }}</label>
+              <select class="form-control mode-of-payment-field-{{ page_id }}" id="mode-of-payment-field-{{ page_id }}">
+               <option value="">{{ __("Sélectionner...") }}</option></select>
+            </div>
+            <div class="col-md-3">
+                <label>{{ __("Compte") }}</label>
+                <select class="form-control account-field-{{ page_id }}" id="account-field-{{ page_id }}"><option value="">{{ __("Sélectionner...") }}</option></select>
+            </div>
+            <div class="col-md-2">
+                <label>{{ __("Date") }}</label>
+                <input type="date" class="form-control payment-date" value="{{ frappe.datetime.nowdate() }}">
+            </div>
+            <div class="col-md-2">
+                <label>{{ __("Référence") }}</label>
+                <input type="text" class="form-control payment-reference" placeholder="{{ __() }}">
+            </div>
+            <div class="col-md-2">
+                <label>{{ __("Montant") }}</label>
+                <input type="number" class="form-control text-right payment-amount" step="0.01" value="0.00">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-12 text-end">
+                <button class="btn btn-success create-payment">{{ __("Créer Règlement") }}</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+.stat-card { background: var(--card-bg); padding: var(--padding-md); border-radius: var(--border-radius); box-shadow: var(--card-shadow);}
+.stat-card .label { color: var(--text-muted); font-size: var(--text-sm);}
+.stat-card .value { font-size: var(--text-xl); font-weight: bold; color: var(--text-color);}
+.payment-section { background: var(--fg-color); padding: var(--padding-md); border-radius: var(--border-radius); box-shadow: var(--card-shadow);}
+.table thead th { background: var(--fg-color); border-bottom: 2px solid var(--border-color);}
+.table tbody tr:hover { background-color: var(--fg-hover-color); cursor: pointer;}
+</style>
